@@ -1,0 +1,301 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{HomeWorkTemplate}
+\usepackage{circuitikz}
+\usepackage[shortlabels]{enumitem}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tcolorbox}
+\usepackage{xepersian}
+\usepackage{mathtools}
+\settextfont{XB Niloofar}
+\usetikzlibrary{arrows,automata}
+\usetikzlibrary{circuits.logic.US}
+\usepackage{changepage}
+\newcounter{subproblemcounter}
+\setcounter{subproblemcounter}{1}
+\newcommand{\problem}[1]
+{
+	\subsection*{
+		تمرین
+		#1
+	}
+}
+\newcommand{\subproblem}{
+	\textbf{\harfi{subproblemcounter})}\stepcounter{subproblemcounter}
+}
+
+
+
+\begin{document}
+\handout
+{مباحث ویژه در سیستم‌های دیجیتال}
+{دکتر ایمان غلام‌پور}
+{نیم‌سال اول 1400\lr{-}1401}
+{اطلاعیه}
+{امین کشیری}
+{۹۷۱۰۱۰۲۶}
+ {تمرین سری سوم}
+
+\problem{۱}
+
+\subproblem{}
+ابتدا این فرمول را به صورت آشنایی در می‌آوریم: 
+
+\begin{LTR}
+$\text{conv}(A \rightarrow B ) = \frac{1-S(B)}{1-\text{conf}(A \rightarrow B)}
+= \frac{P(B^c)}{1-P(B | A)} = \frac{P(B^c)}{P(B^c | A)} 
+$
+\end{LTR}
+
+از طرفی، اگر 
+$A$
+و
+$B$
+مستقل باشند، داریم:
+
+\begin{LTR}
+$P(B|A) = P(B) \Rightarrow P(B^c|A) = P(B^c)$
+\end{LTR}
+
+حال با کمی دقت می‌توان فهمید که 
+$P(B^c|A)$
+برابر است با احتمال اشتباه بودن قانون
+\LTRfootnote{Association Rule}. 
+با توجه به این معادلات، می‌توانیم بگوییم که 
+$\text{conv}(A \rightarrow B )$
+برابر است بااحتمال اشتباه بودن قانون وقتی که 
+$A$
+و
+$B$
+مستقل‌اند تقسیم بر احتمال اشتباه بودنی که مشاهده‌ کرده‌ایم. مثلا اگر 
+conv
+برابر 
+$1.5$
+باشد، یعنی اگر 
+$A$
+و
+$B$
+مستقل بودند، این قانون ۵۰ درصد بیشتر اشتباه می‌کرد (که این یعنی نسبت به حالت استقلال، اشتباهات کمتری داشته‌ایم).
+
+\subproblem{}
+conf
+و
+conv
+نامتقارن‌اند اما 
+lift 
+متقارن است. 
+
+برای 
+lift
+داریم:
+
+\begin{LTR}
+$\text{lift}(A \rightarrow B) = \frac{\text{conf}(A \rightarrow B)}{S(B)} = \frac{P(B|A)}{P(B)} = \frac{P(B \cap A)}{P(B)P(A)} 
+= \frac{\text{conf}(B \rightarrow A)}{S(A)} = \text{lift}(B \rightarrow A)$
+\end{LTR}
+
+برای 
+conf 
+، در حالت کلی به وضوح داریم که:
+$P(B|A) \neq P(A|B)$. برای 
+conv
+، با یک مثال نقض ثابت می‌کنیم که متقارن نیست. 
+فرض کنید که 
+$A = B^c$. 
+در این صورت، داریم: 
+\begin{LTR}
+	
+	$\text{conv}(A \rightarrow B) = \frac{P(B^c) \cdot P(A)}{P(B^c \cap A)} = P(A) $
+
+	$\text{conv}(B \rightarrow A) = \frac{P(A^c) \cdot P(B)}{P(A^c \cap B)} = P(B) $
+\end{LTR}
+اما می‌توانیم 
+$B$
+را طوری انتخاب کنیم که 
+$P(A) = P(B)$. 
+
+
+\subproblem
+ضعف این تعریف آن است که در آن احتمال رخ دادن
+$B$
+در نظر گرفته نشده‌است. اگر بدون تغییر دادن
+$A$
+مجموعه‌ی
+$B$
+را بزرگ و بزرگ‌تر کنیم،‌ 
+$P(B|A)$
+تنها می‌تواند بزرگ‌تر شود. اما این بزرگ شدن، به ما چیزی راجب جالب بودن این قانون نمی‌گوید. یعنی تنها با 
+محتمل‌تر کردن نتیجه، احتمال رخ دادن قانون 
+(
+	که با 
+	conf
+	نشان داده‌ایم
+) 
+بیشتر می‌شود، که به ما نشان می‌دهد 
+conf
+معیار خوبی برای اندازه‌‌گیری قدرت قانون 
+$A \rightarrow B$
+نیست. 
+
+
+
+
+
+\problem{۲}
+
+این سوال را تنها به صورت احتمالاتی می‌توانیم پاسخ دهیم. یعنی می‌توانیم با احتمال خیلی خیلی بالا بگوییم که 
+مجموعه‌های پرتکرار چه خواهند بود (با احتمال تقریبا ۱۰۰). برای این کار نیز، احتمال پر تکرار بودن یک مجموعه وقتی 
+تعداد سبد‌ها به سمت بی‌نهایت می‌رود را به دست می‌آوریم. 
+
+متغیر تصادفی 
+$X$
+را به صورت زیر تعریف می‌کنیم: 
+
+\begin{LTR}
+$X = S(A)$
+\end{LTR}
+که یعنی 
+$X$
+تعداد تکرار زیر مجموعه‌ی 
+$A$
+است. حال فرض کنید: 
+\begin{LTR}
+$A = \{ a_i | i \in I \}$
+\end{LTR}
+احتمال این که 
+$A$
+در یک سبد ظاهر شود، برابر است با احتمال ظاهر شدن تمام اعضای آن. دقت کنید که وجود عناصر اضافه برای ما مشکلی ایجاد نمی‌کند. از طرفی طبق صورت سوال، ظاهر 
+شدن یک کالا، مستقل از باقی کالاها است. در نتیجه احتمال این که زیر مجموعه‌ی 
+$A$
+را در یک سبد ببینیم، برابر است با:
+\begin{LTR}
+$p_A = \Pi_{i \in I} p_i$
+\end{LTR}
+حال اگر به تعریف 
+$X$
+دقت کنید، وقتی که 
+$n$
+سبد داشته باشیم، داریم:
+\begin{LTR}
+$X \sim \mathbf{B}(n,p_A) $ 
+\end{LTR}
+یعنی 
+$X$
+یک متغیر دوجمله‌ای است. مجموعه‌ی 
+$A$
+پر تکرار است اگر و تنها اگر 
+$S(A) > \frac{n}{10}$. 
+با استفاده از قانون چبیشف شرط پر تکرار بودن مجموعه‌ها را می‌یابیم:
+
+\begin{LTR}
+$P(X \leq \mu - c) \leq P(|X-\mu|>c) \leq \frac{\sigma^2}{c^2} \xRightarrow{c = \mu - \frac{n}{10}}  
+P(X \leq \frac{n}{10}) \leq \frac{np_A(1-p_A)}{(\mu - \frac{n}{10})^2}
+$
+\end{LTR}
+
+با توجه به تعریف 
+$X$
+داریم:
+\begin{LTR}
+$E(X) = p_A n$
+\end{LTR}
+
+
+حال اگر در نامعادلات بالا
+$n$
+را به بی‌نهایت میل دهیم، این احتمال به صفر میل می‌کند. یعنی وقتی 
+$n$
+به بی‌نهایت میل می‌کند، احتمال این که سبد پرتکرار نشود به صفر میل می‌کند. دقت کنید که در نامعادلات بالا، شرط مثبت 
+بودن 
+$c$
+یا به عبارتی
+$\mu \geq \frac{n}{10}$
+وجود داشته است، که این خود معادل است با 
+$p_A > \frac{1}{10}$.
+ به صورت مشابه می‌توانیم نشان دهیم: 
+\begin{LTR}
+$P(X \geq \mu + c) \leq P(|X-\mu|>c) \leq \frac{\sigma^2}{c^2} \xRightarrow{c = \frac{n}{10} - \mu }  
+P(X \geq \frac{n}{10}) \leq \frac{np_A(1-p_A)}{(\frac{n}{10} - \mu)^2}
+$
+\end{LTR}
+
+و این یعنی در این حالت، که 
+$p_A < \frac{1 }{10}$
+است، احتمال پر تکرار شدن به صفر میل می‌کند. در نتیجه برای این که سبدی پرتکرار شود، باید داشته باشیم 
+$p_A \geq 0.1$
+(
+	دقت کنید که اگر 
+	$p_A = 0.1$
+	آنگاه سبد ما روی مرز قرار دارد و پرتکرار بودن یا نبودن آن را نمی‌توانیم تضمین کنیم
+). 
+طبق فرض سوال داریم: 
+$p_i = \frac{1 }{i}$
+پس باید تمامی حالاتی را برای
+$I$
+به دست آوریم که 
+$p_A = \Pi_{i \in I} p_i \geq 0.1$
+که این اتفاق وقتی رخ می‌دهد که:
+\begin{LTR}
+$I_1 = \{1,2,3\} \Rightarrow p_A = \frac{1}{6} \geq 0.1$
+
+$I_2 = \{1,2\} \Rightarrow p_A = \frac{1}{2} \geq 0.1$
+
+$I_3 = \{2,3\} \Rightarrow p_A = \frac{1}{6} \geq 0.1$
+
+$I_4 = \{1,3\} \Rightarrow p_A = \frac{1}{3} \geq 0.1$
+
+$I_5 = \{2,4\} \Rightarrow p_A = \frac{1}{8} \geq 0.1$
+
+$I_6 = \{2,5\} \Rightarrow p_A = \frac{1}{10} \geq 0.1$
+
+$I_7 = \{1,4\} \Rightarrow p_A = \frac{1}{4} \geq 0.1$
+
+$I_8 = \{1,5\} \Rightarrow p_A = \frac{1}{5} \geq 0.1$
+
+$I_9 = \{1,6\} \Rightarrow p_A = \frac{1}{6} \geq 0.1$
+
+$I_{10} = \{1,7\} \Rightarrow p_A = \frac{1}{7} \geq 0.1$
+
+$I_{11} = \{1,8\} \Rightarrow p_A = \frac{1}{8} \geq 0.1$
+
+$I_{12} = \{1,9\} \Rightarrow p_A = \frac{1}{9} \geq 0.1$
+
+$I_{13} = \{1,10\} \Rightarrow p_A = \frac{1}{10} \geq 0.1$
+
+$I_{14} = \{1\} \Rightarrow p_A = \frac{1}{1} \geq 0.1$
+
+$I_{15} = \{2\} \Rightarrow p_A = \frac{1}{2} \geq 0.1$
+
+$I_{16} = \{3\} \Rightarrow p_A = \frac{1}{3} \geq 0.1$
+
+$I_{17} = \{4\} \Rightarrow p_A = \frac{1}{4} \geq 0.1$
+
+$I_{18} = \{5\} \Rightarrow p_A = \frac{1}{5} \geq 0.1$
+
+$I_{19} = \{6\} \Rightarrow p_A = \frac{1}{6} \geq 0.1$
+
+$I_{20} = \{7\} \Rightarrow p_A = \frac{1}{7} \geq 0.1$
+
+$I_{21} = \{8\} \Rightarrow p_A = \frac{1}{8} \geq 0.1$
+
+$I_{22} = \{9\} \Rightarrow p_A = \frac{1}{9} \geq 0.1$
+
+$I_{23} = \{10\} \Rightarrow p_A = \frac{1}{10} \geq 0.1$
+
+\end{LTR}
+
+پس مجموعه‌های پرتکرار به این صورت به دست می‌آیند. 
+
+
+
+
+
+\problem{۳}
+توضیحات و نتایج کدها به صورت کامل در 
+\lr{jupyter-notebook}
+آمده است. 
+
+
+\end{document}
