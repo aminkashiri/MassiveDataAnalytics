@@ -6,3 +6,6 @@
 
 .ipynb_checkpoints
 .vscode
+
+*.csv
+*.zip
