@@ -1,0 +1,4 @@
+sudo apt install unzip
+sudo apt install openjdk
+env
+pip install pyspark numpy pandas
