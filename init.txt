@@ -1,4 +1,7 @@
-sudo apt install unzip
-sudo apt install openjdk
-env
+ssh-keygen -t ed25519 -C "amin_kashiri@yahoo.com"
+git config --global user.email "amin_kashiri@yahoo.com"
+git config --global user.name "Amin Kashiri"
+cat /home/user1/.ssh/id_ed25519
+sudo apt install unzip openjdk-8-jdk-headless -qq
+source ../environment/bin/activate 
 pip install pyspark numpy pandas
