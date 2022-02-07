@@ -8,6 +8,6 @@ curl https://transfer.sh/V87gVQ/Sample_Data.zip -o Sample_Data.zip
 curl https://transfer.sh/9kG2jB/Data.zip -o Data.zip
 unzip Sample_Data -d Sample_Traffic.csv
 unzip Data -d Traffic.csv
-pip install pyspark numpy pandas
+pip install pyspark numpy pandas matplotlib (install requirements.txt!)
 install jupyter/python extensions
 restart VSCode!
