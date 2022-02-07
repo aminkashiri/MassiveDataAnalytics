@@ -6,4 +6,8 @@ sudo apt install unzip openjdk-8-jdk-headless -qq
 source ../environment/bin/activate 
 curl https://transfer.sh/V87gVQ/Sample_Data.zip -o Sample_Data.zip
 curl https://transfer.sh/9kG2jB/Data.zip -o Data.zip
+unzip Sample_Data -d Sample_Traffic.csv
+unzip Data -d Traffic.csv
 pip install pyspark numpy pandas
+install jupyter/python extensions
+restart VSCode!
