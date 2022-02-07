@@ -4,4 +4,6 @@ git config --global user.name "Amin Kashiri"
 cat /home/user1/.ssh/id_ed25519
 sudo apt install unzip openjdk-8-jdk-headless -qq
 source ../environment/bin/activate 
+curl https://transfer.sh/V87gVQ/Sample_Data.zip -o Sample_Data.zip
+curl https://transfer.sh/9kG2jB/Data.zip -o Data.zip
 pip install pyspark numpy pandas
