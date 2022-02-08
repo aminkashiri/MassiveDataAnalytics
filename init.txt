@@ -19,4 +19,5 @@ vim environment/lib/python3.8/site-packages/pyspark/conf/spark-defaults.conf
 spark.driver.memory 64g
 spark.executor.memory 64g
 ```
+scp -P 2207 Downloads/openjdk-11.0.2_linux-x64_bin.tar.gz  user1@94.184.208.18:/home/user1/ (for java if needed)
 restart VSCode!
