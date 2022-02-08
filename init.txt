@@ -13,4 +13,10 @@ unzip Sample_Data -d Sample_Traffic.csv
 unzip Data -d Traffic.csv
 pip install pyspark numpy pandas matplotlib (install requirements.txt!)
 install jupyter/python extensions
+mkdir environment/lib/python3.8/site-packages/pyspark/conf
+vim environment/lib/python3.8/site-packages/pyspark/conf/spark-defaults.conf
+```
+spark.driver.memory 64g
+spark.executor.memory 64g
+```
 restart VSCode!
