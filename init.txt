@@ -9,8 +9,8 @@ sudo apt install unzip openjdk-8-jdk-headless -qq
 source ../environment/bin/activate 
 curl https://transfer.sh/V87gVQ/Sample_Data.zip -o Sample_Data.zip
 curl https://transfer.sh/9kG2jB/Data.zip -o Data.zip
-unzip Sample_Data -d Sample_Traffic.csv
-unzip Data -d Traffic.csv
+unzip Sample_Data.zip -d project/
+unzip Data.zip -d project/
 pip install pyspark numpy pandas matplotlib (install requirements.txt!)
 install jupyter/python extensions
 mkdir environment/lib/python3.8/site-packages/pyspark/conf
