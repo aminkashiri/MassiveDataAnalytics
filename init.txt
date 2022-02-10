@@ -13,8 +13,8 @@ unzip Sample_Data.zip -d project/
 unzip Data.zip -d project/
 pip install pyspark numpy pandas matplotlib (install requirements.txt!)
 install jupyter/python extensions
-mkdir environment/lib/python3.8/site-packages/pyspark/conf
-vim environment/lib/python3.8/site-packages/pyspark/conf/spark-defaults.conf
+mkdir ../environment/lib/python3.8/site-packages/pyspark/conf
+vim ../environment/lib/python3.8/site-packages/pyspark/conf/spark-defaults.conf
 ```
 spark.driver.memory 64g
 spark.executor.memory 64g
