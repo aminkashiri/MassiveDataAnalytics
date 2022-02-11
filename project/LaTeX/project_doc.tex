@@ -1,0 +1,53 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{HomeWorkTemplate}
+\usepackage{circuitikz}
+\usepackage[shortlabels]{enumitem}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tcolorbox}
+\usepackage{xepersian}
+\usepackage{mathtools}
+\settextfont{XB Niloofar}
+\usetikzlibrary{arrows,automata}
+\usetikzlibrary{circuits.logic.US}
+\usepackage{changepage}
+\newcounter{subproblemcounter}
+\setcounter{subproblemcounter}{1}
+\newcommand{\problem}[1]
+{
+	\subsection*{
+		تمرین
+		#1
+		}
+	\setcounter{subproblemcounter}{1}
+}
+\newcommand{\subproblem}{
+	\textbf{\harfi{subproblemcounter})}\stepcounter{subproblemcounter}
+}
+
+
+\begin{document}
+\handout
+{مباحث ویژه در سیستم‌های دیجیتال}
+{دکتر ایمان غلام‌پور}
+{نیم‌سال اول 1400\lr{-}1401}
+{اطلاعیه}
+{امین کشیری}
+{۹۷۱۰۱۰۲۶}
+ {توضیحات پروژه}
+
+
+ 
+\include{sections/intro.tex}
+ 
+\section{General}
+
+\include{sections/clustering.tex}
+
+\include{sections/Pixie.tex}
+
+
+
+\end{document}
